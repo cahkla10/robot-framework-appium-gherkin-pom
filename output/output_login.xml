@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.10.8 on darwin)" generated="20221121 16:18:11.922" rpa="false" schemaversion="3">
+<suite id="s1" name="Login Suite" source="/Users/softwareqa/Documents/Otomesyen/Robot/Robot_AppSourceLab/test_suites/login_suite.robot">
+<test id="s1-t1" name="Scenario: User want to login using correct credentials" line="10">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:18:12.133" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:18:12.133" endtime="20221121 16:18:12.141"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:18:12.142" endtime="20221121 16:18:12.143"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:18:15.145" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:18:12.144" endtime="20221121 16:18:15.145"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:12.132" endtime="20221121 16:18:15.145"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:18:15.147" endtime="20221121 16:18:23.741"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:15.146" endtime="20221121 16:18:23.741"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:23.743" endtime="20221121 16:18:25.450"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:25.450" endtime="20221121 16:18:25.497"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:25.497" endtime="20221121 16:18:25.538"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:25.539" endtime="20221121 16:18:25.578"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:25.579" endtime="20221121 16:18:25.617"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:25.617" endtime="20221121 16:18:25.654"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:23.743" endtime="20221121 16:18:25.654"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:23.742" endtime="20221121 16:18:25.654"/>
+</kw>
+<kw name="Then user input username and password &quot;${VALID_USERNAME}&quot; &quot;${VALID_PASSWORD}&quot;" library="login_step" sourcename="User input username and password &quot;${username}&quot; &quot;${password}&quot;">
+<kw name="Input Username" library="login_page">
+<arg>${username}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:25.658" level="INFO">Typing text 'standard_user' into text field 'accessibility_id=test-Username'</msg>
+<status status="PASS" starttime="20221121 16:18:25.655" endtime="20221121 16:18:26.229"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:25.655" endtime="20221121 16:18:26.229"/>
+</kw>
+<kw name="Input Password" library="login_page">
+<arg>${password}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:26.234" level="INFO">Typing text 'secret_sauce' into text field 'accessibility_id=test-Password'</msg>
+<status status="PASS" starttime="20221121 16:18:26.230" endtime="20221121 16:18:27.260"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:26.229" endtime="20221121 16:18:27.262"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:25.654" endtime="20221121 16:18:27.264"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:27.273" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:18:27.267" endtime="20221121 16:18:27.794"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:27.267" endtime="20221121 16:18:27.794"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:27.266" endtime="20221121 16:18:27.794"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:18:27.795" endtime="20221121 16:18:28.486"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:27.794" endtime="20221121 16:18:28.486"/>
+</kw>
+<kw name="Stop Appium" library="resources" type="TEARDOWN">
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20221121 16:18:28.488" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20221121 16:18:28.592" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20221121 16:18:28.488" endtime="20221121 16:18:28.592"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:28.487" endtime="20221121 16:18:28.594"/>
+</kw>
+<tag>correct_credentials</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:18:12.131" endtime="20221121 16:18:28.595"/>
+</test>
+<test id="s1-t2" name="Scenario: User want to login using incorrect credentials" line="18">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:18:28.600" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:18:28.599" endtime="20221121 16:18:28.614"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:18:28.616" endtime="20221121 16:18:28.617"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:18:31.619" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:18:28.617" endtime="20221121 16:18:31.619"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:28.598" endtime="20221121 16:18:31.620"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:18:31.621" endtime="20221121 16:18:41.252"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:31.620" endtime="20221121 16:18:41.253"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:41.255" endtime="20221121 16:18:43.425"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:43.425" endtime="20221121 16:18:43.482"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:43.483" endtime="20221121 16:18:43.523"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:43.524" endtime="20221121 16:18:43.572"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:43.573" endtime="20221121 16:18:43.613"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:18:43.613" endtime="20221121 16:18:43.651"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:41.254" endtime="20221121 16:18:43.651"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:41.254" endtime="20221121 16:18:43.651"/>
+</kw>
+<kw name="Then user input username and password &quot;${INVALID_USERNAME}&quot; &quot;${INVALID_PASSWORD}&quot;" library="login_step" sourcename="User input username and password &quot;${username}&quot; &quot;${password}&quot;">
+<kw name="Input Username" library="login_page">
+<arg>${username}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:43.656" level="INFO">Typing text 'standarduser' into text field 'accessibility_id=test-Username'</msg>
+<status status="PASS" starttime="20221121 16:18:43.653" endtime="20221121 16:18:43.729"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:43.652" endtime="20221121 16:18:43.730"/>
+</kw>
+<kw name="Input Password" library="login_page">
+<arg>${password}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:43.733" level="INFO">Typing text 'secretsauce' into text field 'accessibility_id=test-Password'</msg>
+<status status="PASS" starttime="20221121 16:18:43.730" endtime="20221121 16:18:44.972"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:43.730" endtime="20221121 16:18:44.972"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:43.652" endtime="20221121 16:18:44.973"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:18:44.981" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:18:44.975" endtime="20221121 16:18:45.535"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:44.975" endtime="20221121 16:18:45.535"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:44.974" endtime="20221121 16:18:45.535"/>
+</kw>
+<kw name="Then user read the error message user pass &quot;${ERROR_TEXT_USERNAME_PASS}&quot;" library="login_step" sourcename="User read the error message user pass &quot;${expected_error_text}&quot;">
+<kw name="Read Error Message User Pass" library="login_page">
+<arg>${expected_error_text}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USERPASS}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:18:46.737" level="INFO">xpath criteria: //*[@text="Username and password do not match any user in this service."]</msg>
+<status status="PASS" starttime="20221121 16:18:45.537" endtime="20221121 16:18:46.738"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USERPASS}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:18:47.096" level="INFO">xpath criteria: //*[@text="Username and password do not match any user in this service."]</msg>
+<status status="PASS" starttime="20221121 16:18:46.738" endtime="20221121 16:18:47.097"/>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${LOGIN_ERROR_TEXT_USERPASS}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:18:47.399" level="INFO">Element 'xpath=//*[@text="Username and password do not match any user in this service."]' text is 'Username and password do not match any user in this service.' </msg>
+<msg timestamp="20221121 16:18:47.399" level="INFO">xpath criteria: //*[@text="Username and password do not match any user in this service."]</msg>
+<msg timestamp="20221121 16:18:47.399" level="INFO">${actual} = Username and password do not match any user in this service.</msg>
+<status status="PASS" starttime="20221121 16:18:47.097" endtime="20221121 16:18:47.400"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USERPASS}</arg>
+<arg>${expected_error_text}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:18:47.404" level="INFO">Verifying element 'xpath=//*[@text="Username and password do not match any user in this service."]' contains exactly text 'Username and password do not match any user in this service.'.</msg>
+<msg timestamp="20221121 16:18:47.630" level="INFO">xpath criteria: //*[@text="Username and password do not match any user in this service."]</msg>
+<status status="PASS" starttime="20221121 16:18:47.400" endtime="20221121 16:18:47.630"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:45.537" endtime="20221121 16:18:47.630"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:45.536" endtime="20221121 16:18:47.631"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:18:47.632" endtime="20221121 16:18:48.232"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:47.631" endtime="20221121 16:18:48.234"/>
+</kw>
+<kw name="Stop Appium" library="resources" type="TEARDOWN">
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20221121 16:18:48.237" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20221121 16:18:48.342" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20221121 16:18:48.236" endtime="20221121 16:18:48.343"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:48.236" endtime="20221121 16:18:48.343"/>
+</kw>
+<tag>incorrect_credentials</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:18:28.597" endtime="20221121 16:18:48.344"/>
+</test>
+<test id="s1-t3" name="Scenario: User want to login only username" line="27">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:18:48.351" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:18:48.351" endtime="20221121 16:18:48.365"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:18:48.366" endtime="20221121 16:18:48.367"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:18:51.369" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:18:48.368" endtime="20221121 16:18:51.369"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:48.350" endtime="20221121 16:18:51.369"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:18:51.371" endtime="20221121 16:19:02.143"/>
+</kw>
+<status status="PASS" starttime="20221121 16:18:51.370" endtime="20221121 16:19:02.144"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:02.147" endtime="20221121 16:19:03.366"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:03.366" endtime="20221121 16:19:03.414"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:03.415" endtime="20221121 16:19:03.457"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:03.457" endtime="20221121 16:19:03.504"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:03.504" endtime="20221121 16:19:03.545"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:03.545" endtime="20221121 16:19:03.585"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:02.145" endtime="20221121 16:19:03.585"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:02.144" endtime="20221121 16:19:03.585"/>
+</kw>
+<kw name="Then user input username &quot;${VALID_USERNAME}&quot;" library="login_step" sourcename="User input username &quot;${username}&quot;">
+<kw name="Input Username" library="login_page">
+<arg>${username}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:19:03.590" level="INFO">Typing text 'standard_user' into text field 'accessibility_id=test-Username'</msg>
+<status status="PASS" starttime="20221121 16:19:03.587" endtime="20221121 16:19:04.157"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:03.586" endtime="20221121 16:19:04.158"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:03.586" endtime="20221121 16:19:04.158"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:19:04.162" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:19:04.159" endtime="20221121 16:19:04.673"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:04.158" endtime="20221121 16:19:04.673"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:04.158" endtime="20221121 16:19:04.673"/>
+</kw>
+<kw name="Then user read the error message pass &quot;${ERROR_TEXT_PASSWORD}&quot;" library="login_step" sourcename="User read the error message pass &quot;${expected_error_text}&quot;">
+<kw name="Read Error Message Pass" library="login_page">
+<arg>${expected_error_text}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_PASS}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:19:05.341" level="INFO">xpath criteria: //*[@text="Password is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:04.675" endtime="20221121 16:19:05.341"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_PASS}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:19:05.435" level="INFO">xpath criteria: //*[@text="Password is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:05.342" endtime="20221121 16:19:05.435"/>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${LOGIN_ERROR_TEXT_PASS}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:19:05.530" level="INFO">Element 'xpath=//*[@text="Password is required"]' text is 'Password is required' </msg>
+<msg timestamp="20221121 16:19:05.530" level="INFO">xpath criteria: //*[@text="Password is required"]</msg>
+<msg timestamp="20221121 16:19:05.530" level="INFO">${actual} = Password is required</msg>
+<status status="PASS" starttime="20221121 16:19:05.435" endtime="20221121 16:19:05.530"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_PASS}</arg>
+<arg>${expected_error_text}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:19:05.533" level="INFO">Verifying element 'xpath=//*[@text="Password is required"]' contains exactly text 'Password is required'.</msg>
+<msg timestamp="20221121 16:19:05.625" level="INFO">xpath criteria: //*[@text="Password is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:05.530" endtime="20221121 16:19:05.625"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:04.674" endtime="20221121 16:19:05.625"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:04.674" endtime="20221121 16:19:05.625"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:19:05.626" endtime="20221121 16:19:06.180"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:05.626" endtime="20221121 16:19:06.180"/>
+</kw>
+<kw name="Stop Appium" library="resources" type="TEARDOWN">
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20221121 16:19:06.182" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20221121 16:19:06.286" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20221121 16:19:06.181" endtime="20221121 16:19:06.286"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:06.181" endtime="20221121 16:19:06.286"/>
+</kw>
+<tag>only_username</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:18:48.347" endtime="20221121 16:19:06.286"/>
+</test>
+<test id="s1-t4" name="Scenario: User want to login only password" line="36">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:19:06.290" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:19:06.289" endtime="20221121 16:19:06.305"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:19:06.306" endtime="20221121 16:19:06.307"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:19:09.308" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:19:06.307" endtime="20221121 16:19:09.308"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:06.288" endtime="20221121 16:19:09.308"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:19:09.309" endtime="20221121 16:19:17.670"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:09.309" endtime="20221121 16:19:17.670"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:17.672" endtime="20221121 16:19:19.601"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:19.601" endtime="20221121 16:19:19.648"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:19.648" endtime="20221121 16:19:19.689"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:19.689" endtime="20221121 16:19:19.730"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:19.730" endtime="20221121 16:19:19.769"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:19.769" endtime="20221121 16:19:19.806"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:17.671" endtime="20221121 16:19:19.806"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:17.671" endtime="20221121 16:19:19.806"/>
+</kw>
+<kw name="Then user input password &quot;${VALID_PASSWORD}&quot;" library="login_step" sourcename="User input password &quot;${password}&quot;">
+<kw name="Input Password" library="login_page">
+<arg>${password}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:19:19.810" level="INFO">Typing text 'secret_sauce' into text field 'accessibility_id=test-Password'</msg>
+<status status="PASS" starttime="20221121 16:19:19.807" endtime="20221121 16:19:20.375"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:19.807" endtime="20221121 16:19:20.375"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:19.806" endtime="20221121 16:19:20.376"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:19:20.379" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:19:20.377" endtime="20221121 16:19:20.893"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:20.376" endtime="20221121 16:19:20.893"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:20.376" endtime="20221121 16:19:20.893"/>
+</kw>
+<kw name="Then user read the error message user &quot;${ERROR_TEXT_USERNAME}&quot;" library="login_step" sourcename="User read the error message user &quot;${expected_error_text}&quot;">
+<kw name="Read Error Message User" library="login_page">
+<arg>${expected_error_text}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:19:21.557" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:20.894" endtime="20221121 16:19:21.557"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:19:21.693" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:21.557" endtime="20221121 16:19:21.693"/>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:19:21.791" level="INFO">Element 'xpath=//*[@text="Username is required"]' text is 'Username is required' </msg>
+<msg timestamp="20221121 16:19:21.791" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<msg timestamp="20221121 16:19:21.791" level="INFO">${actual} = Username is required</msg>
+<status status="PASS" starttime="20221121 16:19:21.693" endtime="20221121 16:19:21.792"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<arg>${expected_error_text}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:19:21.794" level="INFO">Verifying element 'xpath=//*[@text="Username is required"]' contains exactly text 'Username is required'.</msg>
+<msg timestamp="20221121 16:19:21.886" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:21.792" endtime="20221121 16:19:21.886"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:20.894" endtime="20221121 16:19:21.886"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:20.893" endtime="20221121 16:19:21.887"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:19:21.887" endtime="20221121 16:19:22.614"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:21.887" endtime="20221121 16:19:22.614"/>
+</kw>
+<kw name="Stop Appium" library="resources" type="TEARDOWN">
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20221121 16:19:22.616" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20221121 16:19:22.718" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20221121 16:19:22.616" endtime="20221121 16:19:22.718"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:22.615" endtime="20221121 16:19:22.719"/>
+</kw>
+<tag>only_password</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:19:06.287" endtime="20221121 16:19:22.719"/>
+</test>
+<test id="s1-t5" name="Scenario: User want to login empty credentials" line="45">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:19:22.722" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:19:22.721" endtime="20221121 16:19:22.730"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:19:22.730" endtime="20221121 16:19:22.732"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:19:25.735" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:19:22.733" endtime="20221121 16:19:25.735"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:22.721" endtime="20221121 16:19:25.736"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:19:25.738" endtime="20221121 16:19:33.849"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:25.737" endtime="20221121 16:19:33.849"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:33.851" endtime="20221121 16:19:35.783"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:35.784" endtime="20221121 16:19:35.830"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:35.830" endtime="20221121 16:19:35.870"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:35.870" endtime="20221121 16:19:35.908"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:35.908" endtime="20221121 16:19:35.947"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:19:35.947" endtime="20221121 16:19:35.984"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:33.850" endtime="20221121 16:19:35.985"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:33.849" endtime="20221121 16:19:35.985"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:19:35.988" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:19:35.986" endtime="20221121 16:19:36.060"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:35.985" endtime="20221121 16:19:36.060"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:35.985" endtime="20221121 16:19:36.060"/>
+</kw>
+<kw name="Then user read the error message user &quot;${ERROR_TEXT_USERNAME}&quot;" library="login_step" sourcename="User read the error message user &quot;${expected_error_text}&quot;">
+<kw name="Read Error Message User" library="login_page">
+<arg>${expected_error_text}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:19:36.778" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:36.062" endtime="20221121 16:19:36.778"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:19:37.041" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:36.778" endtime="20221121 16:19:37.041"/>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:19:37.174" level="INFO">Element 'xpath=//*[@text="Username is required"]' text is 'Username is required' </msg>
+<msg timestamp="20221121 16:19:37.174" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<msg timestamp="20221121 16:19:37.174" level="INFO">${actual} = Username is required</msg>
+<status status="PASS" starttime="20221121 16:19:37.042" endtime="20221121 16:19:37.174"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${LOGIN_ERROR_TEXT_USER}</arg>
+<arg>${expected_error_text}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:19:37.179" level="INFO">Verifying element 'xpath=//*[@text="Username is required"]' contains exactly text 'Username is required'.</msg>
+<msg timestamp="20221121 16:19:37.291" level="INFO">xpath criteria: //*[@text="Username is required"]</msg>
+<status status="PASS" starttime="20221121 16:19:37.174" endtime="20221121 16:19:37.291"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:36.061" endtime="20221121 16:19:37.291"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:36.061" endtime="20221121 16:19:37.291"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:19:37.293" endtime="20221121 16:19:37.855"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:37.292" endtime="20221121 16:19:37.855"/>
+</kw>
+<kw name="Stop Appium" library="resources" type="TEARDOWN">
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20221121 16:19:37.859" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20221121 16:19:37.960" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20221121 16:19:37.859" endtime="20221121 16:19:37.960"/>
+</kw>
+<status status="PASS" starttime="20221121 16:19:37.858" endtime="20221121 16:19:37.961"/>
+</kw>
+<tag>empty_credentials</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:19:22.720" endtime="20221121 16:19:37.961"/>
+</test>
+<status status="PASS" starttime="20221121 16:18:11.924" endtime="20221121 16:19:37.963"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">correct_credentials</stat>
+<stat pass="1" fail="0" skip="0">empty_credentials</stat>
+<stat pass="1" fail="0" skip="0">incorrect_credentials</stat>
+<stat pass="1" fail="0" skip="0">only_password</stat>
+<stat pass="1" fail="0" skip="0">only_username</stat>
+<stat pass="5" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Login Suite">Login Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

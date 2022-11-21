@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.10.8 on darwin)" generated="20221121 16:20:56.382" rpa="false" schemaversion="3">
+<suite id="s1" name="Products Suite" source="/Users/softwareqa/Documents/Otomesyen/Robot/Robot_AppSourceLab/test_suites/products_suite.robot">
+<test id="s1-t1" name="Scenario: User want to read products page title" line="10">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:20:56.602" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:20:56.601" endtime="20221121 16:20:56.609"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:20:56.610" endtime="20221121 16:20:56.611"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:20:59.615" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:20:56.612" endtime="20221121 16:20:59.615"/>
+</kw>
+<status status="PASS" starttime="20221121 16:20:56.600" endtime="20221121 16:20:59.615"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:20:59.617" endtime="20221121 16:21:09.301"/>
+</kw>
+<status status="PASS" starttime="20221121 16:20:59.616" endtime="20221121 16:21:09.302"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:09.307" endtime="20221121 16:21:11.035"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:11.035" endtime="20221121 16:21:11.081"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:11.081" endtime="20221121 16:21:11.131"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:11.132" endtime="20221121 16:21:11.171"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:11.171" endtime="20221121 16:21:11.210"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:11.210" endtime="20221121 16:21:11.247"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:09.305" endtime="20221121 16:21:11.247"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:09.304" endtime="20221121 16:21:11.247"/>
+</kw>
+<kw name="Then user input username and password &quot;${VALID_USERNAME}&quot; &quot;${VALID_PASSWORD}&quot;" library="login_step" sourcename="User input username and password &quot;${username}&quot; &quot;${password}&quot;">
+<kw name="Input Username" library="login_page">
+<arg>${username}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:11.252" level="INFO">Typing text 'standard_user' into text field 'accessibility_id=test-Username'</msg>
+<status status="PASS" starttime="20221121 16:21:11.249" endtime="20221121 16:21:11.814"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:11.248" endtime="20221121 16:21:11.815"/>
+</kw>
+<kw name="Input Password" library="login_page">
+<arg>${password}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:11.818" level="INFO">Typing text 'secret_sauce' into text field 'accessibility_id=test-Password'</msg>
+<status status="PASS" starttime="20221121 16:21:11.815" endtime="20221121 16:21:12.829"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:11.815" endtime="20221121 16:21:12.829"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:11.248" endtime="20221121 16:21:12.829"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:12.836" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:21:12.831" endtime="20221121 16:21:13.367"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:12.830" endtime="20221121 16:21:13.367"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:12.830" endtime="20221121 16:21:13.367"/>
+</kw>
+<kw name="Then user read title page &quot;PRODUCTS&quot;" library="products_step" sourcename="User read title page &quot;${expected_title_page}&quot;">
+<kw name="Products Page Displayed" library="products_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_BURGER_MENU}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:13.369" endtime="20221121 16:21:14.819"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_BURGER_MENU}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:14.819" endtime="20221121 16:21:14.868"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:15.522" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:14.868" endtime="20221121 16:21:15.522"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:21:15.708" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:15.523" endtime="20221121 16:21:15.708"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_CART}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:15.709" endtime="20221121 16:21:15.753"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_CART}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:15.754" endtime="20221121 16:21:15.799"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:15.799" endtime="20221121 16:21:15.847"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:15.847" endtime="20221121 16:21:15.895"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:13.368" endtime="20221121 16:21:15.895"/>
+</kw>
+<kw name="Read Products Title" library="products_page">
+<arg>${expected_title_page}</arg>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:21:16.045" level="INFO">Element 'xpath=//*[@text="PRODUCTS"]' text is 'PRODUCTS' </msg>
+<msg timestamp="20221121 16:21:16.045" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<msg timestamp="20221121 16:21:16.045" level="INFO">${actual} = PRODUCTS</msg>
+<status status="PASS" starttime="20221121 16:21:15.896" endtime="20221121 16:21:16.045"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<arg>${expected_title_page}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:21:16.048" level="INFO">Verifying element 'xpath=//*[@text="PRODUCTS"]' contains exactly text 'PRODUCTS'.</msg>
+<msg timestamp="20221121 16:21:16.183" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:16.045" endtime="20221121 16:21:16.183"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:15.895" endtime="20221121 16:21:16.183"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:13.368" endtime="20221121 16:21:16.183"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:21:16.184" endtime="20221121 16:21:16.825"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:16.183" endtime="20221121 16:21:16.826"/>
+</kw>
+<tag>read_title</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:20:56.599" endtime="20221121 16:21:16.826"/>
+</test>
+<test id="s1-t2" name="Scenario: User want to sort the products" line="19">
+<kw name="Start Appium" library="resources" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>appium -a 0.0.0.0 -p ${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20221121 16:21:16.830" level="INFO">Starting process:
+appium -a 0.0.0.0 -p 4723</msg>
+<status status="PASS" starttime="20221121 16:21:16.829" endtime="20221121 16:21:16.839"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20221121 16:21:16.839" endtime="20221121 16:21:16.841"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221121 16:21:19.846" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221121 16:21:16.842" endtime="20221121 16:21:19.846"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:16.828" endtime="20221121 16:21:19.846"/>
+</kw>
+<kw name="Given user launch the AUT" library="resources">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=appium</arg>
+<arg>app=${APP}</arg>
+<arg>appActivity=${Activity_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20221121 16:21:19.848" endtime="20221121 16:21:26.120"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:19.847" endtime="20221121 16:21:26.120"/>
+</kw>
+<kw name="Then user see login page elements is displayed" library="login_step">
+<kw name="Home Page Displayed" library="login_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:26.122" endtime="20221121 16:21:28.033"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:28.034" endtime="20221121 16:21:28.082"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:28.082" endtime="20221121 16:21:28.123"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:28.123" endtime="20221121 16:21:28.163"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:28.163" endtime="20221121 16:21:28.204"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:28.204" endtime="20221121 16:21:28.243"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:26.122" endtime="20221121 16:21:28.243"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:26.121" endtime="20221121 16:21:28.243"/>
+</kw>
+<kw name="Then user input username and password &quot;${VALID_USERNAME}&quot; &quot;${VALID_PASSWORD}&quot;" library="login_step" sourcename="User input username and password &quot;${username}&quot; &quot;${password}&quot;">
+<kw name="Input Username" library="login_page">
+<arg>${username}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:28.248" level="INFO">Typing text 'standard_user' into text field 'accessibility_id=test-Username'</msg>
+<status status="PASS" starttime="20221121 16:21:28.245" endtime="20221121 16:21:28.814"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:28.244" endtime="20221121 16:21:28.815"/>
+</kw>
+<kw name="Input Password" library="login_page">
+<arg>${password}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:28.818" level="INFO">Typing text 'secret_sauce' into text field 'accessibility_id=test-Password'</msg>
+<status status="PASS" starttime="20221121 16:21:28.815" endtime="20221121 16:21:29.333"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:28.815" endtime="20221121 16:21:29.333"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:28.244" endtime="20221121 16:21:29.334"/>
+</kw>
+<kw name="Then user click on Login button" library="login_step">
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:29.342" level="INFO">Clicking element 'accessibility_id=test-LOGIN'.</msg>
+<status status="PASS" starttime="20221121 16:21:29.335" endtime="20221121 16:21:29.867"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:29.335" endtime="20221121 16:21:29.868"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:29.334" endtime="20221121 16:21:29.868"/>
+</kw>
+<kw name="Then user read title page &quot;PRODUCTS&quot;" library="products_step" sourcename="User read title page &quot;${expected_title_page}&quot;">
+<kw name="Products Page Displayed" library="products_page">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_BURGER_MENU}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:29.869" endtime="20221121 16:21:31.365"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_BURGER_MENU}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:31.365" endtime="20221121 16:21:31.447"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:32.142" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:31.447" endtime="20221121 16:21:32.142"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20221121 16:21:32.289" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:32.142" endtime="20221121 16:21:32.290"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_CART}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:32.290" endtime="20221121 16:21:32.358"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_CART}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:32.358" endtime="20221121 16:21:32.406"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:32.406" endtime="20221121 16:21:32.453"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:32.453" endtime="20221121 16:21:32.507"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:29.869" endtime="20221121 16:21:32.507"/>
+</kw>
+<kw name="Read Products Title" library="products_page">
+<arg>${expected_title_page}</arg>
+<kw name="Get Text" library="AppiumLibrary">
+<var>${actual}</var>
+<arg>${PRODUCTS_TITLE}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<msg timestamp="20221121 16:21:32.654" level="INFO">Element 'xpath=//*[@text="PRODUCTS"]' text is 'PRODUCTS' </msg>
+<msg timestamp="20221121 16:21:32.654" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<msg timestamp="20221121 16:21:32.654" level="INFO">${actual} = PRODUCTS</msg>
+<status status="PASS" starttime="20221121 16:21:32.508" endtime="20221121 16:21:32.654"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${PRODUCTS_TITLE}</arg>
+<arg>${expected_title_page}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20221121 16:21:32.657" level="INFO">Verifying element 'xpath=//*[@text="PRODUCTS"]' contains exactly text 'PRODUCTS'.</msg>
+<msg timestamp="20221121 16:21:32.779" level="INFO">xpath criteria: //*[@text="PRODUCTS"]</msg>
+<status status="PASS" starttime="20221121 16:21:32.654" endtime="20221121 16:21:32.779"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:32.507" endtime="20221121 16:21:32.779"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:29.868" endtime="20221121 16:21:32.779"/>
+</kw>
+<kw name="Then user sort products &quot;Name (A to Z)&quot; &quot;Name (Z to A)&quot; &quot;Price (low to high)&quot; &quot;Price (high to low)&quot;" library="products_step" sourcename="User sort products &quot;${sort1}&quot; &quot;${sort2}&quot; &quot;${sort3}&quot; &quot;${sort4}&quot;">
+<kw name="Click Sort" library="products_page">
+<arg>${sort1}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:32.780" endtime="20221121 16:21:32.849"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:32.852" level="INFO">Clicking element 'accessibility_id=test-Modal Selector Button'.</msg>
+<status status="PASS" starttime="20221121 16:21:32.849" endtime="20221121 16:21:32.915"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:33.737" level="INFO">xpath criteria: //*[@text="Name (A to Z)"]
+xpath criteria: //*[@text="Name (A to Z)"]</msg>
+<status status="PASS" starttime="20221121 16:21:32.915" endtime="20221121 16:21:33.737"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:33.740" level="INFO">Clicking element 'xpath=//*[@text="Name (A to Z)"]'.</msg>
+<msg timestamp="20221121 16:21:33.826" level="INFO">xpath criteria: //*[@text="Name (A to Z)"]</msg>
+<status status="PASS" starttime="20221121 16:21:33.737" endtime="20221121 16:21:33.826"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:32.780" endtime="20221121 16:21:33.827"/>
+</kw>
+<kw name="Click Sort" library="products_page">
+<arg>${sort2}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:33.827" endtime="20221121 16:21:34.441"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:34.445" level="INFO">Clicking element 'accessibility_id=test-Modal Selector Button'.</msg>
+<status status="PASS" starttime="20221121 16:21:34.441" endtime="20221121 16:21:34.500"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:35.209" level="INFO">xpath criteria: //*[@text="Name (Z to A)"]
+xpath criteria: //*[@text="Name (Z to A)"]</msg>
+<status status="PASS" starttime="20221121 16:21:34.500" endtime="20221121 16:21:35.210"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:35.213" level="INFO">Clicking element 'xpath=//*[@text="Name (Z to A)"]'.</msg>
+<msg timestamp="20221121 16:21:35.298" level="INFO">xpath criteria: //*[@text="Name (Z to A)"]</msg>
+<status status="PASS" starttime="20221121 16:21:35.210" endtime="20221121 16:21:35.298"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:33.827" endtime="20221121 16:21:35.299"/>
+</kw>
+<kw name="Click Sort" library="products_page">
+<arg>${sort3}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:35.299" endtime="20221121 16:21:36.110"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:36.113" level="INFO">Clicking element 'accessibility_id=test-Modal Selector Button'.</msg>
+<status status="PASS" starttime="20221121 16:21:36.110" endtime="20221121 16:21:36.168"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:36.856" level="INFO">xpath criteria: //*[@text="Price (low to high)"]
+xpath criteria: //*[@text="Price (low to high)"]</msg>
+<status status="PASS" starttime="20221121 16:21:36.168" endtime="20221121 16:21:36.857"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:36.860" level="INFO">Clicking element 'xpath=//*[@text="Price (low to high)"]'.</msg>
+<msg timestamp="20221121 16:21:36.924" level="INFO">xpath criteria: //*[@text="Price (low to high)"]</msg>
+<status status="PASS" starttime="20221121 16:21:36.857" endtime="20221121 16:21:36.924"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:35.299" endtime="20221121 16:21:36.924"/>
+</kw>
+<kw name="Click Sort" library="products_page">
+<arg>${sort4}</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20221121 16:21:36.924" endtime="20221121 16:21:37.614"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRODUCTS_SORT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:37.617" level="INFO">Clicking element 'accessibility_id=test-Modal Selector Button'.</msg>
+<status status="PASS" starttime="20221121 16:21:37.614" endtime="20221121 16:21:37.666"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20221121 16:21:38.398" level="INFO">xpath criteria: //*[@text="Price (high to low)"]
+xpath criteria: //*[@text="Price (high to low)"]</msg>
+<status status="PASS" starttime="20221121 16:21:37.666" endtime="20221121 16:21:38.398"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text="${sort_order}"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20221121 16:21:38.402" level="INFO">Clicking element 'xpath=//*[@text="Price (high to low)"]'.</msg>
+<msg timestamp="20221121 16:21:38.462" level="INFO">xpath criteria: //*[@text="Price (high to low)"]</msg>
+<status status="PASS" starttime="20221121 16:21:38.399" endtime="20221121 16:21:38.462"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:36.924" endtime="20221121 16:21:38.462"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:32.779" endtime="20221121 16:21:38.462"/>
+</kw>
+<kw name="Then user close the AUT" library="resources">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20221121 16:21:38.464" endtime="20221121 16:21:39.077"/>
+</kw>
+<status status="PASS" starttime="20221121 16:21:38.463" endtime="20221121 16:21:39.077"/>
+</kw>
+<tag>product_sort</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20221121 16:21:16.827" endtime="20221121 16:21:39.077"/>
+</test>
+<status status="PASS" starttime="20221121 16:20:56.384" endtime="20221121 16:21:39.080"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">product_sort</stat>
+<stat pass="1" fail="0" skip="0">read_title</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Products Suite">Products Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
