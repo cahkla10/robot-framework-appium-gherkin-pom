@@ -16,7 +16,8 @@
 # Running
 
 - This app automation using [Sauce Lab](https://github.com/saucelabs/sample-app-mobile/releases) app for dummy app.
-- You can install the app or let the automation install the app.
+- We can install the app or let the automation install the app.
+- We don't need to run the appium server manually because it has been run automatically in ```resource.robot```.
 - Config the <strong>app folder path</strong> in ```resources.robot``` file.
 - Go to <strong>test_suites</strong> folder.
 
@@ -37,6 +38,6 @@ For other options, we can see using command ```robot --help``` in terminal.
 - ```robot -o ../output/output_login -l ../output/log/log_login -r ../output/report/report_login login_suite.robot```
 - ```robot -o ../output/output_products -l ../output/log/log_products -r ../output/report/report_products -i product_sort products_suite.robot```
 
-For other example, we can go to [Run Examples](https://dev.to/juperala/how-to-run-robot-framework-test-from-command-line-5aa)
+<br>
 
 [Appium Keyword References](https://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html)
