@@ -16,7 +16,7 @@
 # Running
 
 - This app automation using [Sauce Lab](https://github.com/saucelabs/sample-app-mobile/releases) app for dummy app.
-- We can install the app or let the automation install the app.
+- We can install the app first or let the automation install the app.
 - We don't need to run the appium server manually because it has been run automatically in ```resource.robot```.
 - Config the <strong>app folder path</strong> in ```resources.robot``` file.
 - Go to <strong>test_suites</strong> folder.
