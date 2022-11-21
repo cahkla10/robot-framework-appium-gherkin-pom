@@ -16,7 +16,8 @@
 # Running
 
 - This app automation using [Sauce Lab](https://github.com/saucelabs/sample-app-mobile/releases) app for dummy app.
-- Install this app to your android device.
+- You can install the app or let the automation install the app.
+- Config the <strong>app folder path</strong> in ```resources.robot``` file.
 - Go to <strong>test_suites</strong> folder.
 
 ## Run Command
