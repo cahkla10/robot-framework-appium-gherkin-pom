@@ -2,9 +2,9 @@
 
 - Download Python from [here](https://www.python.org/downloads/) and install it.
 - Check the installation using command ```python --version``` in terminal.
-- Install robot framework using command ```pip install robotframework``` in terminal. If using Windows the command is ```python -m pip install robotframework```.
-- Install Appium Library using command ```pip install --upgrade robotframework-appiumlibrary``` in terminal. If using Windows the command is ```python -m pip install --upgrade robotframework-appiumlibrary```.
-- Check the installation using command ```pip list``` in terminal. If using Windows the command is ```python -m pip list```. Robot framework and appium library should be in list.
+- Install robot framework using command ```pip install robotframework``` in terminal.
+- Install Appium Library using command ```pip install --upgrade robotframework-appiumlibrary``` in terminal.
+- Check the installation using command ```pip list``` in terminal. Robot framework and appium library should be in list.
 - Download Node.js from [here](https://nodejs.org/en/download/) and install it.
 - Install Appium using command ```npm install -g appium``` in terminal.
 - Download Android SDK from [here](https://developer.android.com/studio/archive) and install it.
